@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, Users, Package, User, BookOpen, Mail, LogIn, UserPlus, Sparkles } from 'lucide-react';
+import { Menu, X, Home, Users, Package, BookOpen, Mail, LogIn, UserPlus, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '../lib/utils';
+
+// Headings
 
 const navItems = [
   { name: 'Home', path: '/', icon: Home },
