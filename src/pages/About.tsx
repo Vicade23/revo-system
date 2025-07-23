@@ -39,8 +39,8 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-secondary">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-20 hero-animated glass-surface">
+        <div className="hero-content container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-brand font-bold mb-6">
             About <span className="gradient-text">REVO</span>
           </h1>

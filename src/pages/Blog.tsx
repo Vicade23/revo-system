@@ -5,7 +5,6 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 
-// regularPosts
 const blogPosts = [
   {
     id: 1,
@@ -85,14 +84,13 @@ export default function Blog() {
     : blogPosts.filter(post => post.category === selectedCategory);
 
   const featuredPost = blogPosts.find(post => post.featured);
-  // eslint-disable-next-line
   const regularPosts = blogPosts.filter(post => !post.featured);
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-secondary">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-20 hero-animated glass-surface">
+        <div className="hero-content container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-brand font-bold mb-6">
             REVO <span className="gradient-text">Blog</span>
           </h1>
@@ -227,23 +225,25 @@ export default function Blog() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-20 bg-gradient-primary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-brand font-bold text-white mb-6">
-            Stay Updated with REVO Insights
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Get the latest articles, research findings, and industry insights delivered directly to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30"
-            />
-            <Button variant="secondary" size="lg">
-              Subscribe
-            </Button>
+      <section className="py-20 hero-animated glass-surface">
+        <div className="hero-content container mx-auto px-4 text-center">
+          <div className="glass-card max-w-2xl mx-auto p-12">
+            <h2 className="text-4xl font-brand font-bold mb-6">
+              Stay Updated with <span className="gradient-text">REVO Insights</span>
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Get the latest articles, research findings, and industry insights delivered directly to your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 rounded-lg bg-background/50 border border-primary/20 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 backdrop-blur-sm"
+              />
+              <Button variant="gradient" size="lg">
+                Subscribe
+              </Button>
+            </div>
           </div>
         </div>
       </section>

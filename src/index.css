@@ -53,9 +53,14 @@
     --gradient-secondary: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(240 5% 15%));
     --gradient-hero: linear-gradient(135deg, hsl(240 10% 3.9% / 0.9), hsl(263 70% 15% / 0.8));
 
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Animations */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Hero Animation Orbs */
+  --orb-primary: hsl(263 70% 50% / 0.3);
+  --orb-secondary: hsl(197 71% 73% / 0.2);
+  --orb-tertiary: hsl(240 10% 50% / 0.1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -216,6 +221,60 @@
 
   .footer-link:hover::before {
     width: 4px;
+  }
+
+  /* Hero Animated Background */
+  .hero-animated {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-animated::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      radial-gradient(circle at 20% 30%, var(--orb-primary) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, var(--orb-secondary) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, var(--orb-tertiary) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+    filter: blur(40px);
+    z-index: 0;
+  }
+
+  .hero-animated::after {
+    content: '';
+    position: absolute;
+    top: -25%;
+    right: -25%;
+    width: 150%;
+    height: 150%;
+    background: 
+      radial-gradient(circle at 60% 20%, var(--orb-secondary) 0%, transparent 40%),
+      radial-gradient(circle at 30% 60%, var(--orb-primary) 0%, transparent 40%);
+    animation: float-reverse 25s ease-in-out infinite;
+    filter: blur(60px);
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    33% { transform: translate(-20px, -30px) rotate(120deg) scale(1.1); }
+    66% { transform: translate(20px, 30px) rotate(240deg) scale(0.9); }
+  }
+
+  @keyframes float-reverse {
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    33% { transform: translate(30px, 20px) rotate(-120deg) scale(0.9); }
+    66% { transform: translate(-30px, -20px) rotate(-240deg) scale(1.1); }
   }
 
   /* Brand Font */
