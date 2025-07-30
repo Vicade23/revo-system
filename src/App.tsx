@@ -10,11 +10,17 @@ import Products from "./pages/Products";
 import Team from "./pages/Team";
 import TeamProfile from "./pages/TeamProfile";
 import Blog from "./pages/Blog";
-import Contact from "./pages/Contact";
+// import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import NotFound from "./pages/NotFound";
 import './index.css'
+import { Contact } from "lucide-react";
+import BlogArticle from "./pages/BlogArticle";
+import BlogReadMore from "./pages/BlogReadMore";
+import Careers from "./pages/Careers";
+import ForgotPassword from "./pages/ForgotPassword";
+import JoinTeam from "./pages/JoinTeam";
 
 const queryClient = new QueryClient();
 
@@ -32,11 +38,18 @@ const App = () => (
           <Route path="/team" element={<Layout><Team /></Layout>} />
           <Route path="/team/:id" element={<Layout><TeamProfile /></Layout>} />
           <Route path="/blog" element={<Layout><Blog /></Layout>} />
+          {/* <Route path="/contact" element={<Layout><Contact /></Layout>} /> */}
+          <Route path="/blog/read-more" element={<Layout><BlogReadMore /></Layout>} />
+          <Route path="/blog/article/:id" element={<Layout><BlogArticle /></Layout>} />
           <Route path="/contact" element={<Layout><Contact /></Layout>} />
+          <Route path="/careers" element={<Layout><Careers /></Layout>} />
+          <Route path="/careers/:id" element={<Layout><Careers /></Layout>} />
           
           {/* Auth Pages (No Layout) */}
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/join-team" element={<JoinTeam />} />
           
           {/* 404 */}
           <Route path="*" element={<NotFound />} />

@@ -12,7 +12,7 @@ const navItems = [
   { name: 'Products', path: '/products', icon: Package },
   { name: 'Team', path: '/team', icon: Users },
   { name: 'Blog', path: '/blog', icon: BookOpen },
-  { name: 'Contact', path: '/contact', icon: Mail },
+  // { name: 'Contact', path: '/contact', icon: Mail },
 ];
 
 const authItems = [

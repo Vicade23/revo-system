@@ -141,15 +141,15 @@ export default function About() {
               Join Our Revolution
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Be part of the future we're building. Explore our products and see how 
+              Be part of the future we're building. Join our team and see how 
               REVO can transform your world.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="gradient" size="lg" asChild>
-                <Link to="/products">Explore Products</Link>
+                <Link to="/products">View Team</Link>
               </Button>
               <Button variant="glass" size="lg" asChild>
-                <Link to="/contact">Get in Touch</Link>
+                <Link to="/contact">Join Team</Link>
               </Button>
             </div>
           </div>

@@ -32,9 +32,8 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-secondary">
-      <div className="container mx-auto px-4 py-20">
-        <div className="max-w-md mx-auto">
+    <div className="min-h-screen hero-animated glass-surface flex items-center justify-center p-4">
+      <div className="hero-content w-full max-w-md">
           {/* Header */}
           <div className="text-center mb-8">
             <Link to="/" className="inline-flex items-center space-x-2 mb-8">
@@ -92,7 +91,7 @@ export default function SignUp() {
                       value={formData.email}
                       onChange={(e) => handleChange('email', e.target.value)}
                       className="glass pl-10"
-                      placeholder="john..company.com"
+                      placeholder="john@company.com"
                       required
                     />
                   </div>
@@ -163,7 +162,7 @@ export default function SignUp() {
                     <Checkbox
                       id="terms"
                       checked={formData.agreeToTerms}
-                      onCheckedChange={(checked: any) => handleChange('agreeToTerms', !!checked)}
+                      onCheckedChange={(checked) => handleChange('agreeToTerms', !!checked)}
                       className="mt-0.5"
                     />
                     <Label htmlFor="terms" className="text-sm leading-5">
@@ -182,7 +181,7 @@ export default function SignUp() {
                     <Checkbox
                       id="newsletter"
                       checked={formData.subscribeNewsletter}
-                      onCheckedChange={(checked: any) => handleChange('subscribeNewsletter', !!checked)}
+                      onCheckedChange={(checked) => handleChange('subscribeNewsletter', !!checked)}
                       className="mt-0.5"
                     />
                     <Label htmlFor="newsletter" className="text-sm leading-5">
@@ -242,7 +241,6 @@ export default function SignUp() {
                 Sign in
               </Link>
             </p>
-          </div>
         </div>
       </div>
     </div>

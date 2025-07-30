@@ -65,7 +65,7 @@ export default function Home() {
               simplify complexity and accelerate human potential.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center py-4">
               <Button variant="hero" size="lg" className="text-base sm:text-lg" asChild>
                 <Link to="/products" className="flex items-center space-x-2">
                   <span>Explore Products</span>

@@ -218,14 +218,14 @@ export default function Products() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Choose the perfect REVO solution for your business and start your transformation today.
+              Choose the perfect REVO solution and start your transformation today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="gradient" size="lg" asChild>
-                <Link to="/contact">Contact Sales</Link>
+                <Link to="/contact">View Team</Link>
               </Button>
               <Button variant="glass" size="lg" asChild>
-                <Link to="/signup">Start Free Trial</Link>
+                <Link to="/signup">Join Team</Link>
               </Button>
             </div>
           </div>

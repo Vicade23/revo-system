@@ -7,6 +7,7 @@ import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Checkbox } from '../components/ui/checkbox';
 
+
 export default function SignIn() {
   const [formData, setFormData] = React.useState({
     email: '',
@@ -26,9 +27,8 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-secondary">
-      <div className="container mx-auto px-4 py-20">
-        <div className="max-w-md mx-auto">
+    <div className="min-h-screen hero-animated glass-surface flex items-center justify-center p-4">
+      <div className="hero-content w-full max-w-md">
           {/* Header */}
           <div className="text-center mb-8">
             <Link to="/" className="inline-flex items-center space-x-2 mb-8">
@@ -89,7 +89,7 @@ export default function SignIn() {
                     <Checkbox
                       id="remember"
                       checked={formData.rememberMe}
-                      onCheckedChange={(checked: any) => handleChange('rememberMe', !!checked)}
+                      onCheckedChange={(checked) => handleChange('rememberMe', !!checked)}
                     />
                     <Label htmlFor="remember" className="text-sm">
                       Remember me
@@ -148,7 +148,6 @@ export default function SignIn() {
                 Sign up for free
               </Link>
             </p>
-          </div>
         </div>
       </div>
     </div>
