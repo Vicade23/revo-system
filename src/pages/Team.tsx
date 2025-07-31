@@ -3,30 +3,48 @@ import { Link } from 'react-router-dom';
 import { MapPin, Linkedin, Twitter, Github, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import Emmanuel_A from '../assets/Emmanuel_A.jpg'
+import Tobi from '../assets/Tobi.png'
+import Dee from '../assets/Dee.jpg'
+import Tunes from '../assets/Tunes.jpg'
 
 const teamMembers = [
   {
     id: 1,
-    name: 'Sarah Chen',
-    role: 'CEO & Founder',
+    name: 'Adedokun V. Emmanuel',
+    role: 'Engineer & Founder',
     department: 'Leadership',
-    location: 'San Francisco, CA',
-    bio: 'Visionary leader with 15+ years in AI and technology innovation.',
-    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face',
+    location: 'Kwara, NG',
+    bio: 'Visionary leader with 4+ years in AI and technology innovation.',
+    image: Emmanuel_A,
     social: {
-      linkedin: '#',
-      twitter: '#',
-      github: '#',
+      linkedin: 'https://www.linkedin.com/in/emmanuel-victor-5b19b1253/',
+      twitter: 'https://x.com/vicademmy',
+      github: 'https://github.com/vicade23',
     },
   },
+  // {
+  //   id: 2,
+  //   name: 'Marcus Rodriguez',
+  //   role: 'CTO',
+  //   department: 'Engineering',
+  //   location: 'Austin, TX',
+  //   bio: 'Technology architect specializing in scalable AI systems.',
+  //   image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
+  //   social: {
+  //     linkedin: '#',
+  //     twitter: '#',
+  //     github: '#',
+  //   },
+  // },
   {
     id: 2,
-    name: 'Marcus Rodriguez',
-    role: 'CTO',
-    department: 'Engineering',
-    location: 'Austin, TX',
-    bio: 'Technology architect specializing in scalable AI systems.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
+    name: 'Idah O. Daniel',
+    role: 'Frontend Developer',
+    department: 'Software',
+    location: 'Lagos, NG',
+    bio: 'Crafting perfect UIs with clean code and passion for seamless user experience.',
+    image: Dee,
     social: {
       linkedin: '#',
       twitter: '#',
@@ -35,12 +53,12 @@ const teamMembers = [
   },
   {
     id: 3,
-    name: 'Emily Johnson',
-    role: 'Head of AI Research',
-    department: 'Research',
-    location: 'Boston, MA',
-    bio: 'Leading researcher in machine learning and neural networks.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
+    name: 'Bolanle O. Abigail',
+    role: 'Frontend Developer',
+    department: 'Software',
+    location: 'Kwara, NG',
+    bio: 'Specializing in scalable, performant web applications',
+    image: Tobi,
     social: {
       linkedin: '#',
       twitter: '#',
@@ -49,46 +67,74 @@ const teamMembers = [
   },
   {
     id: 4,
-    name: 'David Park',
-    role: 'VP of Product',
-    department: 'Product',
-    location: 'Seattle, WA',
-    bio: 'Product strategist focused on user-centered AI solutions.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+    name: 'Prince Techtune',
+    role: 'Fullstack Developer',
+    department: 'Software',
+    location: 'Kwara, NG',
+    bio: 'Multidisciplinary developer with expatise in building web and mobile apps',
+    image: Tunes,
     social: {
       linkedin: '#',
       twitter: '#',
       github: '#',
     },
   },
-  {
-    id: 5,
-    name: 'Lisa Thompson',
-    role: 'Head of Design',
-    department: 'Design',
-    location: 'New York, NY',
-    bio: 'Creative director crafting beautiful, intuitive user experiences.',
-    image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      github: '#',
-    },
-  },
-  {
-    id: 6,
-    name: 'Alex Kumar',
-    role: 'Head of Security',
-    department: 'Security',
-    location: 'London, UK',
-    bio: 'Cybersecurity expert ensuring enterprise-grade protection.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
-    social: {
-      linkedin: '#',
-      twitter: '#',
-      github: '#',
-    },
-  },
+  // {
+  //   id: 3,
+  //   name: 'Bolanle O. Abigail',
+  //   role: 'Head of AI Research',
+  //   department: 'Research',
+  //   location: 'Boston, MA',
+  //   bio: 'Leading researcher in machine learning and neural networks.',
+  //   image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
+  //   social: {
+  //     linkedin: '#',
+  //     twitter: '#',
+  //     github: '#',
+  //   },
+  // },
+  // {
+  //   id: 4,
+  //   name: 'David Park',
+  //   role: 'VP of Product',
+  //   department: 'Product',
+  //   location: 'Seattle, WA',
+  //   bio: 'Product strategist focused on user-centered AI solutions.',
+  //   image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+  //   social: {
+  //     linkedin: '#',
+  //     twitter: '#',
+  //     github: '#',
+  //   },
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Lisa Thompson',
+  //   role: 'Head of Design',
+  //   department: 'Design',
+  //   location: 'New York, NY',
+  //   bio: 'Creative director crafting beautiful, intuitive user experiences.',
+  //   image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face',
+  //   social: {
+  //     linkedin: '#',
+  //     twitter: '#',
+  //     github: '#',
+  //   },
+  // },
+  // {
+  //   id: 6,
+  //   name: 'Alex Kumar',
+  //   role: 'Head of Security',
+  //   department: 'Security',
+  //   location: 'London, UK',
+  //   bio: 'Cybersecurity expert ensuring enterprise-grade protection.',
+  //   image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
+  //   social: {
+  //     linkedin: '#',
+  //     twitter: '#',
+  //     github: '#',
+  //   },
+  // },
 ];
 
 const departments = ['All', 'Leadership', 'Engineering', 'Research', 'Product', 'Design', 'Security'];
@@ -161,19 +207,19 @@ export default function Team() {
                   {/* Social Links */}
                   <div className="flex justify-center space-x-4">
                     <a
-                      href={member.social.linkedin}
+                      href={member.social.linkedin} target='_blank'
                       className="text-muted-foreground hover:text-primary transition-colors duration-300"
                     >
                       <Linkedin className="w-5 h-5" />
                     </a>
                     <a
-                      href={member.social.twitter}
+                      href={member.social.twitter} target='_blank'
                       className="text-muted-foreground hover:text-primary transition-colors duration-300"
                     >
                       <Twitter className="w-5 h-5" />
                     </a>
                     <a
-                      href={member.social.github}
+                      href={member.social.github} target='_blank'
                       className="text-muted-foreground hover:text-primary transition-colors duration-300"
                     >
                       <Github className="w-5 h-5" />

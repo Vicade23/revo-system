@@ -28,11 +28,11 @@ const values = [
 ];
 
 const milestones = [
-  { year: '2020', title: 'REVO Founded', description: 'Started with a vision to revolutionize AI solutions' },
-  { year: '2021', title: '100K Users', description: 'Reached our first major user milestone' },
-  { year: '2022', title: 'Global Expansion', description: 'Expanded operations to 50+ countries' },
-  { year: '2023', title: 'AI Breakthrough', description: 'Launched revolutionary AI platform' },
-  { year: '2024', title: '1M+ Connected', description: 'Connected over 1 million users worldwide' },
+  { year: '2024', title: 'REVO Founded', description: 'Started with a vision to revolutionize AI solutions' },
+  { year: '2024', title: '100+ Users', description: 'Reached our first major user milestone' },
+  { year: '2025', title: 'Global Expansion', description: 'Expanded operations to 1+ countries' },
+  { year: '2025', title: 'AI Breakthrough', description: 'Launched revolutionary AI platform (In progress)' },
+  { year: '2025', title: '100+ Connected', description: 'Connected over 1 hundred users worldwide' },
 ];
 
 export default function About() {

@@ -4,29 +4,112 @@ import { ArrowLeft, MapPin, Calendar, Linkedin, Twitter, Github, Mail } from 'lu
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
+import Emmanuel_A from '../assets/Emmanuel_A.jpg'
+import Tobi from '../assets/Tobi.png'
+import Dee from '../assets/Dee.jpg'
+import Tunes from '../assets/Tunes.jpg'
 
 // Sample team member data (in a real app, this would come from an API)
 const teamMemberData = {
   1: {
-    name: 'Sarah Chen',
-    role: 'CEO & Founder',
+    name: 'Adedokun V. Emmanuel',
+    role: 'Engineer & Founder',
     department: 'Leadership',
-    location: 'San Francisco, CA',
-    joinDate: 'January 2020',
-    email: 'sarah.chen@revo.com',
-    bio: 'Sarah is a visionary leader with over 15 years of experience in AI and technology innovation. She founded REVO with the mission to create AI solutions that truly connect people and simplify complex processes. Prior to REVO, Sarah led AI initiatives at several Fortune 500 companies and holds a PhD in Computer Science from Stanford University.',
-    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face',
-    skills: ['AI Strategy', 'Leadership', 'Product Vision', 'Business Development', 'Public Speaking'],
+    location: 'Kwara, NG',
+    joinDate: 'January 2025',
+    email: 'emavec2002@gmail.com',
+    bio: 'Emmanuel is a visionary leader with over 4 years of experience in AI and technology innovation. He founded REVO with the mission to create AI solutions that truly connect people and simplify complex processes.',
+    image: Emmanuel_A,
+    skills: ['AI Strategy', 'Leadership', 'Product Vision', 'Business Development', 'Engineering'],
     achievements: [
-      'Led REVO to $100M+ valuation',
-      'Featured in Forbes 30 Under 30',
-      'Published 15+ research papers on AI',
-      'Keynote speaker at AI Summit 2023',
+      'Led REVO to $10+ valuation',
+      // 'Featured in Forbes 30 Under 30',
+      // 'Published 15+ research papers on AI',
+      // 'Keynote speaker at AI Summit 2023',
     ],
     education: [
-      { degree: 'PhD Computer Science', school: 'Stanford University', year: '2015' },
-      { degree: 'MS Artificial Intelligence', school: 'MIT', year: '2012' },
-      { degree: 'BS Computer Engineering', school: 'UC Berkeley', year: '2010' },
+      { degree: 'BS Telecommunication Science', school: 'University of Ilorin', year: '2025' },
+      // { degree: 'MS Artificial Intelligence', school: 'MIT', year: '2012' },
+      // { degree: 'BS Computer Engineering', school: 'UC Berkeley', year: '2010' },
+    ],
+    social: {
+      linkedin: 'https://www.linkedin.com/in/emmanuel-victor-5b19b1253/',
+      twitter: 'https://x.com/vicademmy',
+      github: 'https://github.com/vicade23',
+    },
+  },
+  2: {
+    name: 'Idah O. Daniel',
+    role: 'Frontend Developer',
+    department: 'Software',
+    location: 'Lagos, NG',
+    bio: 'Crafting perfect UIs with clean code and passion for seamless user experience.',
+    joinDate: 'May 2025',
+    email: '____________________________',
+    image: Dee,
+    skills: ['Fullstack', 'Analyst', 'Product Vision', 'Business Development', 'Public Speaking'],
+    achievements: [
+      'CEO @ CODIFY',
+      'Real estate developer',
+      // 'Published 15+ research papers on AI',
+      // 'Keynote speaker at AI Summit 2023',
+    ],
+    education: [
+      { degree: 'BS Telecommunication Science', school: 'University of Ilorin', year: '2025' },
+    ],
+    social: {
+      linkedin: '#',
+      twitter: '#',
+      github: '#',
+    },
+  },
+  3: {
+    name: 'Bolanle O. Abigail',
+    role: 'Frontend Developer',
+    department: 'Software',
+    location: 'Kwara, NG',
+    bio: 'Specializing in scalable, performant web applications',
+    image: Tobi,
+    joinDate: 'July 2025',
+    email: '______________________',
+    skills: ['Frontend',],
+    achievements: [
+      // 'Led REVO to $100M+ valuation',
+      // 'Featured in Forbes 30 Under 30',
+      // 'Published 15+ research papers on AI',
+      // 'Keynote speaker at AI Summit 2023',
+    ],
+    education: [
+      // { degree: 'PhD Computer Science', school: 'Stanford University', year: '2015' },
+      // { degree: 'MS Artificial Intelligence', school: 'MIT', year: '2012' },
+      // { degree: 'BS Computer Engineering', school: 'UC Berkeley', year: '2010' },
+    ],
+    social: {
+      linkedin: '#',
+      twitter: '#',
+      github: '#',
+    },
+  },
+  4: {
+    name: 'Prince Techtune',
+    role: 'Fullstack Developer',
+    department: 'Software',
+    location: 'Kwara, NG',
+    bio: 'Multidisciplinary developer with expatise in building web and mobile apps',
+    image: Tunes,
+    joinDate: 'July 2025',
+    email: '______________________',
+    skills: ['Frontend', 'AI Architect'],
+    achievements: [
+      // 'Led REVO to $100M+ valuation',
+      // 'Featured in Forbes 30 Under 30',
+      // 'Published 15+ research papers on AI',
+      // 'Keynote speaker at AI Summit 2023',
+    ],
+    education: [
+      // { degree: 'PhD Computer Science', school: 'Stanford University', year: '2015' },
+      // { degree: 'MS Artificial Intelligence', school: 'MIT', year: '2012' },
+      // { degree: 'BS Computer Engineering', school: 'UC Berkeley', year: '2010' },
     ],
     social: {
       linkedin: '#',
