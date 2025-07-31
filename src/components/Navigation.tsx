@@ -1,11 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Home, Users, Package, BookOpen, Mail, LogIn, UserPlus, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '../lib/utils';
+import { supabase } from '../lib/supaBaseClient';
 
 // Headings
 
+
+export default function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isUser, setIsUser] = useState(false);
+  const location = useLocation();
+
+  const toggleNav = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    userResponse();
+  }, [])
+  const userResponse = async () => {
+    const userResponse = await supabase.auth.getUser();
+    console.log(userResponse.data.user);
+    setIsUser(!!userResponse.data.user);
+  }
+
+  
 const navItems = [
   { name: 'Home', path: '/', icon: Home },
   { name: 'About', path: '/about', icon: Sparkles },
@@ -15,16 +34,10 @@ const navItems = [
   // { name: 'Contact', path: '/contact', icon: Mail },
 ];
 
-const authItems = [
+const authItems = isUser ? [{ name: 'Join Team', path: '/Join-team', icon: UserPlus },] : [
   { name: 'Sign In', path: '/signin', icon: LogIn },
   { name: 'Sign Up', path: '/signup', icon: UserPlus },
 ];
-
-export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-
-  const toggleNav = () => setIsOpen(!isOpen);
 
   return (
     <>
@@ -64,7 +77,7 @@ export default function Navigation() {
               {authItems.map((item) => (
                 <Button
                   key={item.path}
-                  variant={item.name === 'Sign Up' ? 'gradient' : 'glass'}
+                  variant={item.name === 'Join Team' || item.name === 'Sign Up' ? 'gradient' : 'glass'}
                   size="sm"
                   asChild
                 >
@@ -148,7 +161,7 @@ export default function Navigation() {
             {authItems.map((item) => (
               <Button
                 key={item.path}
-                variant={item.name === 'Sign Up' ? 'gradient' : 'glass'}
+                variant={item.name === 'Join Team' || item.name === 'Sign Up' ? 'gradient' : 'glass'}
                 className="w-full justify-start"
                 asChild
               >

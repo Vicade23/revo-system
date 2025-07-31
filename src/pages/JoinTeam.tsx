@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -8,6 +8,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../co
 import { ArrowLeft, Users, MapPin, Linkedin, Twitter, Github, Instagram, GraduationCap } from "lucide-react";
 import { useToast } from "../hooks/use-toast";
 import { ImageUpload } from "../components/ImageUpload";
+import { uploadImg } from "../services/imageUpload";
+// import { uploadImg } from "../services/imageUpload";
 
 const JoinTeam = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +24,7 @@ const JoinTeam = () => {
     education2: "",
   });
   const [profileImage, setProfileImage] = useState<File | null>(null);
+  const [isImgURL, setIsImgURL] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
@@ -31,6 +34,8 @@ const JoinTeam = () => {
     
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("Form submitted:", );
+    // uploadImg()
     
     toast({
       title: "Application submitted!",
@@ -39,6 +44,40 @@ const JoinTeam = () => {
     
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    handleImageChange()
+  }, [profileImage])
+
+  const handleImageChange = () => {
+    // setProfileImage(file);
+    // setIsImgURL(!!file);
+    if (profileImage) {
+      console.log("Image selected:", profileImage.name);
+      uploadImg(profileImage).then((response) => {
+        // @ts-ignore
+        if(response.error) {
+          // @ts-ignore
+          console.log(response.error)
+        } else {
+          console.log("Image uploaded successfully:", response.data.publicUrl);
+          setIsImgURL(true);
+        }
+      }).catch((error) => {
+        console.error("Error uploading image:", error);
+        toast({
+          title: "Image upload failed",
+          description: "Please try again.",
+          variant: "destructive",
+        });
+      })
+
+    } else {
+      console.log("No image selected");
+    }
+  }
+  
+    console.log("Form submitted:", profileImage);
 
   const handleChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));

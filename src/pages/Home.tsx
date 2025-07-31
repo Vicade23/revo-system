@@ -38,10 +38,10 @@ const features = [
 ];
 
 const stats = [
-  { number: '1M+', label: 'Users Connected' },
-  { number: '500+', label: 'AI Solutions' },
-  { number: '150+', label: 'Countries' },
-  { number: '99.9%', label: 'Uptime' },
+  { number: '1K+', label: 'Users Connected' },
+  { number: '50+', label: 'AI Solutions' },
+  { number: '5+', label: 'Countries' },
+  { number: '89.9%', label: 'Uptime' },
 ];
 
 export default function Home() {
