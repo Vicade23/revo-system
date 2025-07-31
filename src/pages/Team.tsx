@@ -23,20 +23,6 @@ const teamMembers = [
       github: 'https://github.com/vicade23',
     },
   },
-  // {
-  //   id: 2,
-  //   name: 'Marcus Rodriguez',
-  //   role: 'CTO',
-  //   department: 'Engineering',
-  //   location: 'Austin, TX',
-  //   bio: 'Technology architect specializing in scalable AI systems.',
-  //   image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-  //   social: {
-  //     linkedin: '#',
-  //     twitter: '#',
-  //     github: '#',
-  //   },
-  // },
   {
     id: 2,
     name: 'Idah O. Daniel',
@@ -79,62 +65,6 @@ const teamMembers = [
       github: '#',
     },
   },
-  // {
-  //   id: 3,
-  //   name: 'Bolanle O. Abigail',
-  //   role: 'Head of AI Research',
-  //   department: 'Research',
-  //   location: 'Boston, MA',
-  //   bio: 'Leading researcher in machine learning and neural networks.',
-  //   image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
-  //   social: {
-  //     linkedin: '#',
-  //     twitter: '#',
-  //     github: '#',
-  //   },
-  // },
-  // {
-  //   id: 4,
-  //   name: 'David Park',
-  //   role: 'VP of Product',
-  //   department: 'Product',
-  //   location: 'Seattle, WA',
-  //   bio: 'Product strategist focused on user-centered AI solutions.',
-  //   image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-  //   social: {
-  //     linkedin: '#',
-  //     twitter: '#',
-  //     github: '#',
-  //   },
-  // },
-  // {
-  //   id: 5,
-  //   name: 'Lisa Thompson',
-  //   role: 'Head of Design',
-  //   department: 'Design',
-  //   location: 'New York, NY',
-  //   bio: 'Creative director crafting beautiful, intuitive user experiences.',
-  //   image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face',
-  //   social: {
-  //     linkedin: '#',
-  //     twitter: '#',
-  //     github: '#',
-  //   },
-  // },
-  // {
-  //   id: 6,
-  //   name: 'Alex Kumar',
-  //   role: 'Head of Security',
-  //   department: 'Security',
-  //   location: 'London, UK',
-  //   bio: 'Cybersecurity expert ensuring enterprise-grade protection.',
-  //   image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
-  //   social: {
-  //     linkedin: '#',
-  //     twitter: '#',
-  //     github: '#',
-  //   },
-  // },
 ];
 
 const departments = ['All', 'Leadership', 'Engineering', 'Research', 'Product', 'Design', 'Security'];
