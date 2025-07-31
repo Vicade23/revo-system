@@ -30,7 +30,7 @@ export default function SignUp() {
     await Auth.signUp(formData).then((response: any) => {
       if (response && response.error) {
         console.log('Sign up error:', response.error.message);
-        if(response.error.message === 'Failed to fetch') {
+        if(response.error.message) {
           
           const Toast = Swal.mixin({
             toast: true,
@@ -47,29 +47,10 @@ export default function SignUp() {
           });
           Toast.fire({
             icon: "error",
-            title: "Check your network and try again"
+            title: `${response.error.message}`
           });
 
-        } else {
-            
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 5000,
-            background: '#2a2a2cff',
-            color: '#fff',
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            }
-          });
-          Toast.fire({
-            icon: "error",
-            title: "This account already exist"
-          });
-        }
+        } 
       } else {
           // Handle successful sign up, e.g., redirect or show a success message
           console.log('Sign up successful:', response?.data);

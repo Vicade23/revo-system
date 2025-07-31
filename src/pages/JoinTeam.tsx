@@ -60,7 +60,7 @@ const JoinTeam = () => {
           // @ts-ignore
           console.log(response.error)
         } else {
-          console.log("Image uploaded successfully:", response.data.publicUrl);
+          console.log("Image uploaded successfully:", response);
           setIsImgURL(true);
         }
       }).catch((error) => {
@@ -72,7 +72,7 @@ const JoinTeam = () => {
         });
       })
 
-    } else {
+    } else { 
       console.log("No image selected");
     }
   }

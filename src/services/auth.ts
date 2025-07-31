@@ -19,24 +19,13 @@ export const Auth = {
         .insert([profile,])
 
     },
-    
-    login: async () => {
-        // return await supabase.auth.signInWithPassword({
-        //     email: data?.email,
-        //     password: data?.password,
-        // })
-    },
-    
-    getUserProfile: async () => {
-        const userResponse = await supabase.auth.getUser();
-        const req = await supabase
-        .from('signup_profile')
-        .select('*')
-        .eq('id', `${userResponse.data.user?.id}`)
-        .single()
-        // console.log(req)
-        // console.log(userResponse)
-        return req
+
+    // @ts-ignore
+    login: async (data) => {
+        return await supabase.auth.signInWithPassword({
+            email: data?.email,
+            password: data?.password,
+        })
     },
 }
 

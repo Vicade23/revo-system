@@ -8,4 +8,5 @@ export const uploadImg = async (profileImage) => {
 
     // console.log(req);
     return req;
-} 
+}
+

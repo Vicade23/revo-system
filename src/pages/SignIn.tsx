@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Mail, Lock, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Checkbox } from '../components/ui/checkbox';
+import { Auth } from '../services/auth';
+import Swal from 'sweetalert2';
 
 
 export default function SignIn() {
@@ -15,10 +17,58 @@ export default function SignIn() {
     rememberMe: false,
   });
   const [showPassword, setShowPassword] = React.useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Handle sign in
+        await Auth.login(formData).then((response: any) => {
+          if (response && response.error) {
+            console.log('Sign in error:', response.error.message);
+            if(response.error.message) {
+              
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 5000,
+                background: '#2a2a2cff',
+                color: '#fff',
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "error",
+                title: `${response.error.message}`
+              });
+    
+            }
+          } else {
+              // Handle successful sign up, e.g., redirect or show a success message
+              console.log('Sign in successful:', response?.data);
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                background: '#2a2a2cff',
+                color: '#fff',
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Signed in successfully"
+              });
+              navigate('/');
+          }
+        });
     console.log('Sign in:', formData);
   };
 
