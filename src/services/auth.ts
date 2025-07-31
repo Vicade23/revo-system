@@ -1,29 +1,22 @@
 import { supabase } from "../lib/supaBaseClient";
+import { loginType, signUpProfile, signUpType } from "../model/authModel/authModel";
 
 export const Auth = {
     
-    signUp: async () => {
-        // return await supabase.auth.signUp({
-        //     email: data?.email,
-        //     password: data?.password,
-        // })
+    signUp: async (formData: signUpProfile) => {
+            
+        return supabase.auth.signUp({
+            email: formData?.email,
+            password: formData?.password,
+        })
     },
 
     // @ts-ignore
     authProfile: async (profile) => {
 
-        try {
-            // const jsonProfile: any = localStorage.getItem('authProfile')
-            // const profile = JSON.parse(jsonProfile)?.access_token;
-            console.log(profile)
-            return await supabase.from('signup_profile')
-            .insert([profile,]).then(() => { 
-            // console.log(response)
-        })
-        
-        } catch (error) {
-            console.log(error)
-        }
+        console.log(profile)
+        return supabase.from('signup_profile')
+        .insert([profile,])
 
     },
     
@@ -45,4 +38,8 @@ export const Auth = {
         // console.log(userResponse)
         return req
     },
+}
+
+function authProfile(arg0: { firstName: string; lastName: string; email: string; company: string; agreeToTerms: boolean; subscribeNewsletter: boolean; created_at: Date; }) {
+    throw new Error("Function not implemented.");
 }

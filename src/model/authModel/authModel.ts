@@ -12,17 +12,14 @@ export interface signUpType {
 }
 
 export interface signUpProfile {
-    id: string | undefined
     firstName: string,
     lastName: string,
     email: string,
+    company: string,
     password: string,
     confirmPassword: string,
-    university: string,
-    major: string,
-    year: string,
     agreeToTerms: boolean,
-    agreeToNewsletter: boolean
+    subscribeNewsletter: boolean,
 }
 
 

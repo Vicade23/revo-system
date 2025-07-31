@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Mail, Lock, User, Building, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Checkbox } from '../components/ui/checkbox';
+import { Auth } from '../services/auth';
+import Swal from 'sweetalert2';
 
 export default function SignUp() {
   const [formData, setFormData] = React.useState({
@@ -20,10 +22,93 @@ export default function SignUp() {
   });
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Handle sign up
+    await Auth.signUp(formData).then((response: any) => {
+      if (response && response.error) {
+        console.log('Sign up error:', response.error.message);
+        if(response.error.message === 'Failed to fetch') {
+          
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 5000,
+            background: '#2a2a2cff',
+            color: '#fff',
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "error",
+            title: "Check your network and try again"
+          });
+
+        } else {
+            
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 5000,
+            background: '#2a2a2cff',
+            color: '#fff',
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "error",
+            title: "This account already exist"
+          });
+        }
+      } else {
+          // Handle successful sign up, e.g., redirect or show a success message
+          console.log('Sign up successful:', response?.data);
+          Auth.authProfile({
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            company: formData.company,
+            agreeToTerms: formData.agreeToTerms,
+            subscribeNewsletter: formData.subscribeNewsletter,
+            created_at: new Date(),
+          }).then((profileResponse: any) => {
+            if (profileResponse.error) {
+              console.log('Profile creation error:', profileResponse.error);
+            } else {
+              console.log('Profile created successfully:', profileResponse);
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                background: '#2a2a2cff',
+                color: '#fff',
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: "Signed up successfully"
+              });
+              navigate(`/`)
+              // Redirect to a welcome page or dashboard
+            }
+          });
+      }
+    });
     console.log('Sign up:', formData);
   };
 
