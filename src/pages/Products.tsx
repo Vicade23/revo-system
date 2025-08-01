@@ -5,6 +5,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import Enzol from '../assets/enzol-logo.png';
+import { supabase } from '../lib/supaBaseClient';
 
 const products = [
   // {
@@ -237,10 +238,10 @@ export default function Products() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="gradient" size="lg" asChild>
-                <Link to="/contact">View Team</Link>
+                <Link to="/team">View Team</Link>
               </Button>
               <Button variant="glass" size="lg" asChild>
-                <Link to="/signup">Join Team</Link>
+                <Link to={`/join-team`}>Join Team</Link>
               </Button>
             </div>
           </div>

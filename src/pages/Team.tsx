@@ -214,11 +214,11 @@ export default function Team() {
               for innovation and want to shape the future of AI technology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="gradient" size="lg">
-                View Open Positions
+              <Button variant="gradient" size="lg" asChild>
+                <Link to="/team">View Team</Link>
               </Button>
               <Button variant="glass" size="lg" asChild>
-                <Link to="/contact">Get in Touch</Link>
+                <Link to={`/join-team`}>Join Team</Link>
               </Button>
             </div>
           </div>

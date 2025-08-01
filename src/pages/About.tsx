@@ -146,10 +146,10 @@ export default function About() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="gradient" size="lg" asChild>
-                <Link to="/products">View Team</Link>
+                <Link to="/team">View Team</Link>
               </Button>
               <Button variant="glass" size="lg" asChild>
-                <Link to="/contact">Join Team</Link>
+                <Link to={`/join-team`}>Join Team</Link>
               </Button>
             </div>
           </div>
