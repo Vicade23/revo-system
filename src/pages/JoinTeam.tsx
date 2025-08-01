@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
@@ -8,7 +8,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../co
 import { ArrowLeft, Users, MapPin, Linkedin, Twitter, Github, Instagram, GraduationCap } from "lucide-react";
 import { useToast } from "../hooks/use-toast";
 import { ImageUpload } from "../components/ImageUpload";
-import { uploadImg } from "../services/imageUpload";
+import { joinUs } from "../services/join_us";
+import { Auth } from "../services/auth";
 // import { uploadImg } from "../services/imageUpload";
 
 const JoinTeam = () => {
@@ -23,10 +24,12 @@ const JoinTeam = () => {
     education1: "",
     education2: "",
   });
-  const [profileImage, setProfileImage] = useState<File | null>(null);
+  const [profileImageFile, setProfileImageFile] = useState<File | null>(null);
   const [isImgURL, setIsImgURL] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [profileImage, setProfileImage] = useState<string | null>('');
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,33 +37,80 @@ const JoinTeam = () => {
     
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log("Form submitted:", );
-    // uploadImg()
-    
-    toast({
-      title: "Application submitted!",
-      description: "We'll review your application and get back to you soon.",
-    });
-    
-    setIsLoading(false);
+
+    Auth.getUser().then((response) => {
+      
+    const submittedData = async () => {
+
+      if (isImgURL) {
+        
+        // const userResponse = (await supabase.auth.getUser()).data.user;
+        if(response.data) {
+            
+          console.log("Form submitted:", {...formData, ...response.data, profileImage} );
+          joinUs.joinUsForm({...formData, ...response.data, profileImage}).then((success) => {
+            if (success.error) {
+              console.log("Error submitting form:", success.error);
+              toast({
+                title: "Submission failed",
+                description: "Please check your details and try again.",
+                variant: "destructive",
+              });
+            } else {
+              console.log("Join team form submitted successfully:", success);
+              toast({
+                title: "Application submitted!",
+                description: "We'll review your application and get back to you soon.",
+              });
+              setTimeout(() => {
+                navigate('/')
+              }, (2000));
+            }
+          })
+          
+          
+          setIsLoading(false);
+        }
+          
+      }
+    }
+
+    if (response.error) {
+      console.log("Error fetching user:", response.error);
+      toast({
+        title: "Error fetching user",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } else {
+      console.log("User fetched successfully:", response.data);
+      submittedData()
+    }
+
+
+
+    })
   };
 
   useEffect(() => {
     handleImageChange()
-  }, [profileImage])
+  }, [profileImageFile])
 
   const handleImageChange = () => {
-    // setProfileImage(file);
+    // setProfileImageFile(file);
     // setIsImgURL(!!file);
-    if (profileImage) {
-      console.log("Image selected:", profileImage.name);
-      uploadImg(profileImage).then((response) => {
+    if (profileImageFile) {
+      console.log("Image selected:", profileImageFile.name);
+      joinUs.uploadImg(profileImageFile)
+      .then((response) => {
+        console.log("Image upload response:", response);
         // @ts-ignore
         if(response.error) {
           // @ts-ignore
           console.log(response.error)
         } else {
           console.log("Image uploaded successfully:", response);
+          setProfileImage(response)
           setIsImgURL(true);
         }
       }).catch((error) => {
@@ -77,7 +127,7 @@ const JoinTeam = () => {
     }
   }
   
-    console.log("Form submitted:", profileImage);
+    // console.log("Form submitted:", profileImageFile);
 
   const handleChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -95,7 +145,7 @@ const JoinTeam = () => {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <ImageUpload onImageChange={setProfileImage} />
+              <ImageUpload onImageChange={setProfileImageFile} />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="role">Role *</Label>
