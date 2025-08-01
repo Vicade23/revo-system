@@ -4,6 +4,7 @@ import { Brain, Zap, Shield, Globe, ArrowRight, Check } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
+import Enzol from '../assets/enzol-logo.png';
 
 const products = [
   // {
@@ -16,13 +17,24 @@ const products = [
   //   popular: false,
   // },
   {
-    name: 'REVO Intelligence',
-    category: 'In Development',
+    name: 'Enzol AI',
+    category: 'AI Solutions',
+    status: 'In Development',
     description: 'Cutting-edge AI platform for learning, research, and analysis.',
-    features: ['Machine Learning', 'Predictive Analytics', '95.9% Accuracy'],
+    features: [
+      'Visual Aids', 
+      'Smart Search', 
+      'Quiz Mode', 
+      'Graph Support', 
+      'Subtopic Tabs', 
+      'AI Tutor', 
+      'Concept Simplifier', 
+      'Real-Time Help', 
+    ],
     price: 'Free',
-    icon: Brain,
+    image: Enzol,
     popular: true,
+    bgColor: 'bg-white',
   },
   // {
   //   name: 'REVO Security',
@@ -102,8 +114,8 @@ export default function Products() {
                 
                 <CardHeader>
                   <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-primary flex items-center justify-center">
-                      <product.icon className="w-8 h-8 text-white" />
+                    <div className={`w-16 h-16 rounded-xl flex items-center justify-center ${product.bgColor}`}>
+                      <img src={product.image} alt="Logo" className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-2">
@@ -145,7 +157,7 @@ export default function Products() {
                         {/* <Button variant="glass" size="sm">
                           Learn More
                         </Button> */}
-                        <a href={'https://enzol-ai-waitlist.vercel.app/'}>
+                        <a href={'https://enzol-ai-waitlist.vercel.app/'} target='_blank'>
                           <Button variant="gradient" size="sm" className="flex items-center space-x-1">
                             <span>Try Free</span>
                             <ArrowRight className="w-4 h-4" />
