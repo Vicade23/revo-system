@@ -6,42 +6,42 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { Badge } from '../components/ui/badge';
 
 const products = [
-  {
-    name: 'REVO Connect',
-    category: 'Communication',
-    description: 'Advanced AI-powered communication platform that connects teams globally.',
-    features: ['Real-time Translation', 'Smart Scheduling', 'AI Meeting Assistant', 'Global Reach'],
-    price: 'Starting at $29/month',
-    icon: Globe,
-    popular: false,
-  },
+  // {
+  //   name: 'REVO Connect',
+  //   category: 'Communication',
+  //   description: 'Advanced AI-powered communication platform that connects teams globally.',
+  //   features: ['Real-time Translation', 'Smart Scheduling', 'AI Meeting Assistant', 'Global Reach'],
+  //   price: 'Starting at $29/month',
+  //   icon: Globe,
+  //   popular: false,
+  // },
   {
     name: 'REVO Intelligence',
-    category: 'AI Solutions',
-    description: 'Cutting-edge AI platform for data analysis, prediction, and automation.',
-    features: ['Machine Learning', 'Predictive Analytics', 'Automation Tools', '99.9% Accuracy'],
-    price: 'Starting at $99/month',
+    category: 'In Development',
+    description: 'Cutting-edge AI platform for learning, research, and analysis.',
+    features: ['Machine Learning', 'Predictive Analytics', '95.9% Accuracy'],
+    price: 'Free',
     icon: Brain,
     popular: true,
   },
-  {
-    name: 'REVO Security',
-    category: 'Cybersecurity',
-    description: 'Enterprise-grade security solutions powered by AI threat detection.',
-    features: ['AI Threat Detection', 'Real-time Monitoring', 'Incident Response', 'Compliance Ready'],
-    price: 'Starting at $149/month',
-    icon: Shield,
-    popular: false,
-  },
-  {
-    name: 'REVO Accelerate',
-    category: 'Performance',
-    description: 'Performance optimization platform that accelerates your digital transformation.',
-    features: ['Performance Monitoring', 'Resource Optimization', 'Scalability Solutions', '24/7 Support'],
-    price: 'Starting at $79/month',
-    icon: Zap,
-    popular: false,
-  },
+  // {
+  //   name: 'REVO Security',
+  //   category: 'Cybersecurity',
+  //   description: 'Enterprise-grade security solutions powered by AI threat detection.',
+  //   features: ['AI Threat Detection', 'Real-time Monitoring', 'Incident Response', 'Compliance Ready'],
+  //   price: 'Starting at $149/month',
+  //   icon: Shield,
+  //   popular: false,
+  // },
+  // {
+  //   name: 'REVO Accelerate',
+  //   category: 'Performance',
+  //   description: 'Performance optimization platform that accelerates your digital transformation.',
+  //   features: ['Performance Monitoring', 'Resource Optimization', 'Scalability Solutions', '24/7 Support'],
+  //   price: 'Starting at $79/month',
+  //   icon: Zap,
+  //   popular: false,
+  // },
 ];
 
 const categories = ['All', 'AI Solutions', 'Communication', 'Cybersecurity', 'Performance'];
@@ -95,7 +95,7 @@ export default function Products() {
                 {product.popular && (
                   <div className="absolute top-4 right-4">
                     <Badge className="bg-gradient-primary text-white border-0">
-                      Most Popular
+                      In Development
                     </Badge>
                   </div>
                 )}
@@ -107,11 +107,12 @@ export default function Products() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-2">
-                        <CardTitle className="text-2xl">{product.name}</CardTitle>
+                        {/* <CardTitle className="text-2xl">{product.name}</CardTitle> */}
                       </div>
-                      <Badge variant="secondary" className="mb-3">
+                      {/* <Badge variant="secondary" className="mb-3">
                         {product.category}
-                      </Badge>
+                      </Badge> */}
+                      <div className="text-2/l mb-2">{product.name}</div>
                       <CardDescription className="text-base">
                         {product.description}
                       </CardDescription>
@@ -138,16 +139,18 @@ export default function Products() {
                     <div className="flex items-center justify-between pt-4 border-t border-border">
                       <div>
                         <div className="text-2xl font-bold gradient-text">{product.price}</div>
-                        <div className="text-sm text-muted-foreground">per user</div>
+                        {/* <div className="text-sm text-muted-foreground">per user</div> */}
                       </div>
                       <div className="space-x-2">
-                        <Button variant="glass" size="sm">
+                        {/* <Button variant="glass" size="sm">
                           Learn More
-                        </Button>
-                        <Button variant="gradient" size="sm" className="flex items-center space-x-1">
-                          <span>Try Free</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </Button>
+                        </Button> */}
+                        <a href={'https://enzol-ai-waitlist.vercel.app/'}>
+                          <Button variant="gradient" size="sm" className="flex items-center space-x-1">
+                            <span>Try Free</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </Button>
+                        </a>
                       </div>
                     </div>
                   </div>
